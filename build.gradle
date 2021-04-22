@@ -6,7 +6,7 @@ apply plugin: 'java'
 apply plugin: 'application'
 
 // This is the class with the main to run when the application starts.
-mainClassName = 'gerstle.geojson.GeoJSonController'
+mainClassName = 'gerstle.geojson.GeoJSonApplication'
 
 repositories {
     mavenCentral()

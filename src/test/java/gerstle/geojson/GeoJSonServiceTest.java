@@ -21,16 +21,17 @@ public class GeoJSonServiceTest{
         GeoJSonService service = retrofit.create(GeoJSonService.class);
         //when
         Single<GeoJSonFeed> single = service.getSignificantEarthquakes();
-        GeoJSonFeed feed = service.getSignificantEarthquakes()
-                .blockingGet();
+        //DO NOT USE BLOCKING GET
+        GeoJSonFeed feed = single.blockingGet();
+
         //then
         assertNotNull(feed);
         assertNotNull(feed.features);
         assertFalse(feed.features.isEmpty());
         assertNotNull(feed.features.get(0).properties);
-        assertNotNull(feed.features.get(0).geometry);
-        assertTrue(feed.features.get(0).properties.mag>0);
-        assertTrue(feed.features.get(0).properties.time>0);
+        assertNotNull(feed.features.get(0).properties.place);
+        assertTrue(feed.features.get(0).properties.mag > 0);
+        assertTrue(feed.features.get(0).properties.time > 0);
         assertNotNull(feed.features.get(0).geometry);
         assertNotNull(feed.features.get(0).geometry.coordinates);
         assertFalse(feed.features.get(0).geometry.coordinates.isEmpty());

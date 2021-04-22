@@ -5,7 +5,7 @@ import retrofit2.http.GET;
 
 public interface GeoJSonService
 {
-    @GET("/earthquakes/feed/v1.0/summary/significant_month.geojson")
+    @GET("/earthquakes/feed/v1.0/summary/all_month.geojson")
     Single<GeoJSonFeed> getSignificantEarthquakes();
 
 }

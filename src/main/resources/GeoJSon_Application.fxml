@@ -9,13 +9,13 @@
 <AnchorPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="gerstle.geojson.GeoJSonController"
-            prefHeight="400.0" prefWidth="600.0">
+            prefHeight="800.0" prefWidth="600.0">
 
-    <TableView fx:id="tableView">
-        <column>
-            <TableColumn>
-
-            </TableColumn>
-        </column>
+    <TableView fx:id="tableView" prefHeight="800.0" prefWidth="600.0">
+        <columns>
+            <TableColumn text="Location" fx:id="locationColumn"/>
+            <TableColumn text="Magnitude" fx:id="magnitudeColumn"/>
+            <TableColumn text="Time" fx:id="timeColumn"/>
+        </columns>
     </TableView>
 </AnchorPane>

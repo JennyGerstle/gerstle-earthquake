@@ -1,18 +1,10 @@
 package gerstle.geojson;
 
-import com.google.gson.Gson;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
-import java.util.Scanner;
 
 public class DownloadGeoJSon
 {
@@ -38,8 +30,8 @@ public class DownloadGeoJSon
         GeoJSonFeed feed = service.getSignificantEarthquakes()
                 .blockingGet();
 
-        Feature largest = feed.features.get(0);
-        for(Feature feature: feed.features)
+        GeoJSonFeed.Feature largest = feed.features.get(0);
+        for(GeoJSonFeed.Feature feature: feed.features)
         {
             if(feature.properties.mag>largest.properties.mag)
             {
